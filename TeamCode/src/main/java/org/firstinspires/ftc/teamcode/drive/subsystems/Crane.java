@@ -28,7 +28,7 @@ public class Crane {
         motorCrane1.setDirection(DcMotorSimple.Direction.FORWARD);
         motorCrane2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motorCrane2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motorCrane2.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorCrane2.setDirection(DcMotorSimple.Direction.REVERSE);
 
         servoGrippy.setDirection(Servo.Direction.FORWARD);
         servoAngle.setDirection(Servo.Direction.FORWARD);

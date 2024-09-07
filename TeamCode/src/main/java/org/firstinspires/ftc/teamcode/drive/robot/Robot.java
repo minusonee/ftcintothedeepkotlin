@@ -21,7 +21,6 @@ public class Robot {
         initialize = true;
         drive = new SampleMecanumDrive(hardwareMap);
         crane = new Crane(hardwareMap);
-//        camera = new AprilTagCamera(hardwareMap);
         initialize = false;
 
         drive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
