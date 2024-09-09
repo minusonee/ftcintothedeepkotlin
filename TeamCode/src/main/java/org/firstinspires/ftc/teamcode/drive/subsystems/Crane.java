@@ -16,7 +16,7 @@ public class Crane {
 
     public Crane(HardwareMap hardwareMap){
         motorCrane1 = hardwareMap.dcMotor.get("motorCrane1");
-        motorCrane2 = hardwareMap.dcMotor.get("motorCrane2");
+//        motorCrane2 = hardwareMap.dcMotor.get("motorCrane2");
 
         servoGrippy = hardwareMap.servo.get("servoGrippy");
         servoAngle = hardwareMap.servo.get("servoAngle");
