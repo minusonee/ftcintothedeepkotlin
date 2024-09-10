@@ -38,10 +38,10 @@ public class LinearDriveMode extends LinearOpMode {
         //INIT CODE
         telemetry.addData(">", "Initialized");
         telemetry.update();
-        robot.crane.motorCraneLeft.setTargetPosition(cranePosition);
-        robot.crane.motorCraneRight.setTargetPosition(cranePosition);
-        robot.crane.motorCraneLeft.setMode(DcMotor.RunMode.);
-        robot.crane.motorCraneRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        robot.crane.motorCraneLeft.setTargetPosition(cranePosition);
+//        robot.crane.motorCraneRight.setTargetPosition(cranePosition);
+//        robot.crane.motorCraneLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+//        robot.crane.motorCraneRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
 
         //TELEOP CODE
 
@@ -106,8 +106,8 @@ public class LinearDriveMode extends LinearOpMode {
             else if(gamepad2.right_trigger > 0.1){
                 cranePosition --;
             }
-            robot.crane.motorCraneLeft.setTargetPosition(cranePosition);
-            robot.crane.motorCraneRight.setTargetPosition(cranePosition);
+//            robot.crane.motorCraneLeft.setTargetPosition(cranePosition);
+//            robot.crane.motorCraneRight.setTargetPosition(cranePosition);
 
 //            OPEN AND CLOSE THE GRIPPER
             if (gamepad2.a) {
@@ -158,11 +158,11 @@ public class LinearDriveMode extends LinearOpMode {
                 if (gamepad2.left_bumper) {
                     telemetry.addLine("a");
                 }
-                telemetry.addData("Servo Angle", robot.crane.servoAngle1.getPosition());
-                telemetry.addData("CRANE TICKS LEFT: ", robot.crane.motorCraneLeft.getCurrentPosition());
-                telemetry.addData("CRANE TICKS RIGHT: ", robot.crane.motorCraneRight.getCurrentPosition());
-                telemetry.addData("DIRECTION: ", direction);
-                telemetry.addData("SERVO GRIPPER: ", robot.crane.servoGrippy1.getPosition());
+//                telemetry.addData("Servo Angle", robot.crane.servoAngle1.getPosition());
+//                telemetry.addData("CRANE TICKS LEFT: ", robot.crane.motorCraneLeft.getCurrentPosition());
+//                telemetry.addData("CRANE TICKS RIGHT: ", robot.crane.motorCraneRight.getCurrentPosition());
+//                telemetry.addData("DIRECTION: ", direction);
+//                telemetry.addData("SERVO GRIPPER: ", robot.crane.servoGrippy1.getPosition());
                 telemetry.update();
             }
         }
