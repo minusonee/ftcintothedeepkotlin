@@ -15,12 +15,13 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 public class PIDF extends OpMode {
     private PIDController controller;
 
-    public static double p = 0, i = 0, d = 0;
-    public static double f = 0;
+    public static double p = 0.025, i = 0, d = 0.0002;
+    public static double f = 0.25;
+    public static double delay = 0.004 ;
 
     public static int target = 0;
 
-    private final double ticks_in_degree = 536 / 360;
+    private final double ticks_in_degree = 537.7 / 360;
 
     private DcMotorEx motorCraneLeft,motorCraneRight;
 
@@ -33,13 +34,11 @@ public class PIDF extends OpMode {
 
         motorCraneLeft = hardwareMap.get(DcMotorEx.class, "motorCraneLeft");
         motorCraneRight = hardwareMap.get(DcMotorEx.class, "motorCraneRight");
-
-        motorCraneLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        motorCraneLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorCraneLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        motorCraneRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         motorCraneLeft.setDirection(DcMotorSimple.Direction.FORWARD);
-        motorCraneRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        motorCraneRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motorCraneRight.setDirection(DcMotorSimple.Direction.REVERSE);
+        target = 40;
     }
 
     public void loop(){
@@ -50,8 +49,21 @@ public class PIDF extends OpMode {
 
         double power = pid + ff;
 
+        if(gamepad1.right_trigger > 0.1){
+            if (getRuntime() > delay) {
+                this.resetRuntime();
+                target++;
+            }
+        }
+        if(gamepad1.left_trigger > 0.1){
+            if (getRuntime() > delay) {
+                this.resetRuntime();
+                target--;
+            }
+        }
         motorCraneLeft.setPower(power);
         motorCraneRight.setPower(power);
+
 
         telemetry.addData("pos ", armPos);
         telemetry.addData("target ", target);
